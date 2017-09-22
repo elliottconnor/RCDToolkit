@@ -1,0 +1,27 @@
+{
+    "Resources": {
+        "ConfigDBTable": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+			"KeySchema": {
+			  "AttributeName" : "SID",
+			  "KeyType" : "HASH"
+			},			
+			"ProvisionedThroughput": {
+			   "ReadCapacityUnits" : "5",
+			   "WriteCapacityUnits" : "5"}				
+			}
+        }
+    },
+	"Outputs" : {
+    "TableName" : {
+      "Value" : {"Ref" : "ConfigDBTable"},
+      "Description" : "Table name of the ConfigDB table"
+    },
+	"TableARN": {
+		
+		"Value" : { "Fn::GetAtt": [ "ConfigDBTable", "Arn" ] },
+      "Description" : "ARN of the ConfigDB table"
+	}
+  }
+}
