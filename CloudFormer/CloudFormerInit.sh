@@ -1,11 +1,9 @@
 #!/bin/bash
-echo "Begin CloudFormer Launch enter your username and password"
-echo -n "Enter your username and press [ENTER]: "
-read CFRusername
-echo -n "Enter your password and press [ENTER]: "
-read CFRpassword
 
-aws cloudformation create-stack --stack-name RCDCFRStack --template-body file://RCDToolkit/CloudFormer/CloudFormerCFT.json --parameters ParameterKey="Username",ParameterValue=CFRusername ParameterKey="Password",ParameterValue=CFRpassword ParameterKey="VPCSelection",ParameterValue="CreateNewVPC"
+
+aws cloudformation create-stack --stack-name RCDCFRStack \
+--template-body file://RCDToolkit/CloudFormer/CloudFormerCFT.json \
+--parameters file://RCDToolkit/CloudFormer/CloudFormerParams.json
 
 aws cloudformation stack-create-complete --stack-name RCDCFRStack
 

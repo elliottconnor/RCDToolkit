@@ -672,7 +672,7 @@
         "VpcId": {
           "Ref": "VPC"
         },
-        "CidrBlock": "10.10.10.0/24"
+        "CidrBlock": "10.10.10.0/24" 
       }
     },
     "VPCInternetGateway": {
